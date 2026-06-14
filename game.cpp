@@ -3,7 +3,7 @@
 #include <cctype>
 #include "gameLogic.h"
  
-int playerOneWins = 3.3 ;
+int playerOneWins{ };
 int playerTwoWins{  };
 int draws{  };
 
