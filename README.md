@@ -9,29 +9,27 @@ Requirements
 Windows OS
 Visual Studio with the C++ development workload installed
 
-How to Play
+## How to Play
+1. Download or clone the project
+2. Open rockPaperScissors.sln in Visual Studio
+3. Build the project (Ctrl + Shift + B)
+4. Run the project (F5)
+5. Find a friend to play against
 
-Download or clone the project
-Open rockPaperScissors.sln in Visual Studio
-Build the project (Ctrl + Shift + B)
-Run the project (F5)
-Find a friend to play against
-
-Controls
-Each player types one of the following options when it is their turn:
-
-rock
-paper
-scissors
-exit — quits the game and shows the final result immediately
+## Controls
+- rock
+- paper
+- scissors
+- exit — quits the game and shows the final result immediately
 
 Input is hidden while typing, so neither player can see what the other has entered.
-Game Flow
 
-Players take turns entering their choice
-The winner of each round is announced immediately
-After each round the game asks if you want to play again
-Once the session ends the overall winner is announced based on total wins
+## Game Flow
+
+- Players take turns entering their choice
+- The winner of each round is announced immediately
+- After each round the game asks if you want to play again 
+- Once the session ends the overall winner is announced based on total wins
 
 Notes
 
