@@ -14,6 +14,11 @@ const std::string firstPlayerTurn = "Player 1 turn!";
 const std::string secondPlayerTurn = "Player 2 turn!";
 const std::string pleaseEnterValue = "Please enter Rock, Paper or Scissors!";
 const std::string thanksForPlaying = "Thanks for playing!";
+const std::string invalidChoiceTryAgain = "Invalid choice, choose again";
+const std::string tie = "Tie!";
+const std::string playerOneWins = "Player one wins";
+const std::string playerTwoWins = "Player two wins";
+const std::string lines = "--------------------------------------";
 
 std::string hiddenInput() {
 	std::string input;
@@ -22,9 +27,9 @@ std::string hiddenInput() {
 	while (true) {
 		ch = _getch();
 		if (ch == '\r') {
-			std::cout << std::endl;
-			std::cout << "Booo its hidden" << std::endl;
-			std::cout << std::endl;
+			std::cout << "\n";
+			std::cout << "Booo its hidden\n";
+			std::cout << "\n";
 			break;
 		}
 		else if (ch == '\b') {
@@ -60,7 +65,7 @@ std::string playerInput() {
 			
 		}
 
-		std::cout << "Invalid option. Try again! " << std::endl;
+		std::cout << invalidChoiceTryAgain << '\n';
 	}
 
 }
@@ -83,15 +88,26 @@ char playerInputChar() {
 }
 
 char playerOneInput() {
-	std::cout << firstPlayerTurn << std::endl;
-	std::cout << pleaseEnterValue << std::endl;
+	std::cout << firstPlayerTurn << "\n";
+	std::cout << pleaseEnterValue << "\n";
 	return playerInputChar();
 }
 
 char playerTwoInput() {
-	std::cout << secondPlayerTurn << std::endl;
-	std::cout << pleaseEnterValue << std::endl;
+	std::cout << secondPlayerTurn << "\n";
+	std::cout << pleaseEnterValue << "\n";
 	return playerInputChar();
+}
+
+void printResult(const std::string& message) {
+	std::cout << lines
+		<< '\n'
+		<< '\n'
+		<< message 
+		<< '\n'
+		<< '\n'
+		<< lines 
+		<< '\n';
 }
 
 int whoIsTheWinnerPvp() {
@@ -101,21 +117,15 @@ int whoIsTheWinnerPvp() {
 	int result = (playerOneInputFinal - playerTwoInputFinal + 3) % 3;
 
 	if (result == 0) {
-		std::cout << "--------------------------------------" << std::endl;
-		std::cout << "Tie!" << std::endl;
-		std::cout << "--------------------------------------" << std::endl;
+		printResult(tie);
 		return 1;
 	}
 	else if (result == 1) {
-		std::cout << "--------------------------------------" << std::endl;
-		std::cout << "Player 1 wins!" << std::endl;
-		std::cout << "--------------------------------------" << std::endl;
+		printResult(playerOneWins);
 		return 2;
 	}
 	else {
-		std::cout << "--------------------------------------" << std::endl;
-		std::cout << "Player 2 wins!" << std::endl;
-		std::cout << "--------------------------------------" << std::endl;
+		printResult(playerTwoWins);
 		return 3;
 	}
 }
@@ -128,7 +138,7 @@ bool letsPlayAgain() {
 		c = tolower(c);
 	}
 	while (choice != "yes" && choice != "no") {
-		std::cout << "Invalid choice, choose again" << std::endl;
+		std::cout << invalidChoiceTryAgain << std::endl;
 		std::getline(std::cin, choice);
 		for (char& c : choice) {
 			c = tolower(c);
@@ -141,6 +151,7 @@ bool letsPlayAgain() {
 		return false;
 	}
 }
+
 
 
 

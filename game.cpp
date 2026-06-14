@@ -6,6 +6,11 @@
 int playerOneWins{ };
 int playerTwoWins{  };
 int draws{  };
+const std::string playerOneVictory = "Player one victory!";
+const std::string playerTwoVictory = "Player two victory!";
+const std::string itsAtie = "It's a tie!";
+const std::string youDidntEvenPlayGame = "You didn't even play the game :'( !";
+const std::string starsAndLines = "- * - * - * - * - * - * - * - * - * - *";
 
 void letsPlayPvp() {
 	int winner = whoIsTheWinnerPvp();
@@ -30,39 +35,33 @@ void doYouWantToPlayAgain() {
 	}
 }
 
+void printWinner(const std::string& message) {
+	std::cout << '\n' <<
+		starsAndLines << '\n'
+		<< '\n'
+		<< '\n'
+		<< message
+		<< '\n'
+		<< '\n'
+		<< starsAndLines
+		<< '\n';
+}
+
 void finalWinnerIs() {
 	if (playerOneWins > playerTwoWins) {
-		std::cout << std::endl;
-		std::cout << "- * - * - * - * - * - * - * - * - * - *" << std::endl;
-		std::cout << std::endl;
-		std::cout << "PLayer one victory!" << std::endl;
-		std::cout << std::endl;
-		std::cout << "- * - * - * - * - * - * - * - * - * - *" << std::endl;
+		printWinner(playerOneVictory);
 	}
 	if (playerTwoWins > playerOneWins ) {
-		std::cout << std::endl;
-		std::cout << "- * - * - * - * - * - * - * - * - * - *" << std::endl;
-		std::cout << std::endl;
-		std::cout << "Player two victory!" << std::endl;
-		std::cout << std::endl;
-		std::cout << "- * - * - * - * - * - * - * - * - * - *" << std::endl;
+		printWinner(playerTwoVictory);
 	}
 
 	if (playerOneWins == playerTwoWins && (playerOneWins > 0 || playerTwoWins > 0 || draws > 0))
 	{
-		std::cout << std::endl;
-		std::cout << "- * - * - * - * - * - * - * - * - * - *" << std::endl;
-		std::cout << std::endl;
-		std::cout << "It's a draw!" << std::endl;
-		std::cout << std::endl;
-		std::cout << "- * - * - * - * - * - * - * - * - * - *" << std::endl;
+		printWinner(itsAtie);
 	
 	}
 	if (playerOneWins == 0 && playerTwoWins == 0 && draws == 0) {
-		std::cout << std::endl;
-		std::cout << std::endl;
-		std::cout << "You didn't even play the game :'( !" << std::endl;
-		std::cout << std::endl;
+		printWinner(youDidntEvenPlayGame);
 
 	}
 	
